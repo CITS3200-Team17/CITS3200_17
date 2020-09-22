@@ -8,6 +8,7 @@ from werkzeug.urls import url_parse
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SubmitField
 from wtforms.validators import ValidationError, DataRequired
+
 import keras
 from keras.datasets import mnist
 from keras.models import Sequential
@@ -141,7 +142,6 @@ def CNN(lines):
 
     return return_values
 
-
 @app.route("/upload", methods=['POST'])
 def upload():
     target = os.path.join(APP_ROOT, 'uploads/')
@@ -152,10 +152,6 @@ def upload():
     #output = process_images()
     #print(output)
     return "Done"
-
-
   
 if __name__ == "__main__":
     app.run(debug=True, host='localhost', port=5001)
-
-
