@@ -3,12 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+  <link href="../static/style.css" rel="stylesheet" type="text/css" media="all">
+  <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="../static/js/copy-clipboard.js"></script>
+  <script src="../static/js/process-images.js"></script>
 </head>
+
 <body>
- <p>Hello. You have reached the main page.
+  <div class="jumbotron text-center">
+    <h1>Galaxy Classification Tool</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form class="mb-5">
+          <div class="form-group">
+            <label for="task">Select Task:</label>
+            <select id="task" class="form-control">
+              <option value="shape">Shape</option>
+              <option value="bar">Bar Fraction</option>
+            </select>
+          </div>
+        </form>
+        <form action="/upload" class="dropzone" id="my-dropzone">
+          <div class="dz-message">Drag and drop an image here, or click to upload.</div>
+        </form>
+		<br>
+		<button onclick="processFiles()">Classify!</button>
+        <p class="mt-5">Output:</p>
+        <div class="card">
+          <div class="card-body" id="output">
+            <p id="p1">Example text</p>
+          </div>
+        </div>
+        <br>
+        <button onclick="copyToClipboard('#p1')">Copy result to clipboard</button>
+      </div>
+    </div>
+  </div>
+ 
+  <div>
+    <a class="bt" href="{{ url_for('logout') }}"><button type="button" class="btn btn-warning" style="margin:0 auto;display:block">
+      <span style="color:cornflowerblue">logout<span></button></a>  
+  </div>
+
+<script type="text/javascript">
   
-<script>
+    Dropzone.autoDiscover = false;
+  
+    var myDropzone = new Dropzone(".dropzone", { 
+      addRemoveLinks: true,
+      removedfile: function(file) {
+        var fileName = file.name; 
+        
+        $.ajax({
+          type: 'POST',
+          url: '../static/upload.php',
+          data: {name: fileName,request: 'delete'},
+        });
+  
+        var _ref;
+        return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+       }
+    });
+      
 </script>
+
+
 </body>
 </html>
