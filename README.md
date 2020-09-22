@@ -20,6 +20,8 @@ Many images of galaxies can be found [here](https://apod.nasa.gov/apod/astropix.
 
 [Running The Web App](#running-the-web-app)
 
+[Packages Required](#packages-required)
+
 [Folder structure](#folder-structure)
 
 
