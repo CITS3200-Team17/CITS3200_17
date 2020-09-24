@@ -40,7 +40,10 @@
 
 .login .m a {
     color: var(--text-colour);
-    
+}
+
+.login .m {
+    line-height: 36px !important;    
 }
 
 img {
@@ -48,7 +51,7 @@ img {
     min-height: 120px;
 }
 
-h1, title, label, p, span, ::placeholder {
+h1, body, label, p, span, ::placeholder {
     color: var(--text-colour) !important;
 }
 
