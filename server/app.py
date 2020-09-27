@@ -111,7 +111,7 @@ def login():
 @app.route("/main", methods=['GET', 'POST'])
 @login_required
 def main():
-    choose_new_background(mode='latest', interval=30)  #[seconds] 60*60*24 = once every 24 hours
+    choose_new_background(mode='latest', interval=60*60*6)  #[seconds] 60*60*24 = once every 24 hours
     return render_template('main.html', title='Main')
 
 # This is more than a little jank. We're going to have to figure out how to use identifiers here as well
