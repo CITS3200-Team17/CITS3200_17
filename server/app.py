@@ -252,7 +252,22 @@ def process_images(target):
     print(ret)
     return ret
     
+def centercrop():
+    try: 
+        location = str(APP_ROOT) + sh + "static" + sh + "img" + sh + "background.jpg"
+        im = Image.open(location)
+        width, height = im.size   # Get dimensions
 
+        left = 0
+        right = width
+        top = height/3
+        bottom = 2*height/3
+
+        # Crop the image
+        im = im.crop((left, top, right, bottom))
+        im.save(location)
+    except:
+        print("image crop failed")
 
 def download_img(url):
     destination = str(APP_ROOT) + sh + "backgrounds" + sh
@@ -310,6 +325,7 @@ def choose_new_background(mode='latest', interval=0): #mode latest|sequence, int
                 bg_location = bg_dir_location + latest_file[1]
                 print(latest_file)
                 shutil.copy2(bg_location, bg_destination)
+                centercrop()
             except:
                 print("No images found in " + bg_dir_location)
         
@@ -321,6 +337,7 @@ def choose_new_background(mode='latest', interval=0): #mode latest|sequence, int
                 bg_location = bg_dir_location + next_file[1]
                 print(next_file)
                 shutil.copy2(bg_location, bg_destination)
+                centercrop()
 
             except:
                 print("No images found in " + bg_dir_location)
