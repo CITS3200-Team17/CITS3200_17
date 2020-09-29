@@ -27,8 +27,55 @@
 }
 
 .jumbotron {
-    background-image: url('./img/space.jpg');
+    background-image: url('./img/background.jpg');
     background-size: cover;
+}
+
+.login {
+  width: 240px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.login .title {
+  font-size: 32px;
+  text-align: center;
+  line-height: 100px;
+  margin-top: 60px;
+}
+
+.login .formInLogin .input {
+  width: 100%;
+  margin-bottom: 18px;
+  border: 0;
+  padding: 11px 0px;
+  border-bottom: 1px solid grey;
+  font-size: 16px;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: var(--text-colour);
+  color: var(--text-colour);
+  background-color: var(--subsection-bg);
+}
+
+.login .formInLogin .btn {
+  font-size: 18px;
+  width: 200px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding-top: 0px;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: var(--text-colour);
+  color: var(--text-colour);
+  background-color: var(--subsection-bg);
+}
+
+.login .m {
+  text-align: center;
+  line-height: 36px;
+  color: var(--text-colour)
 }
 
 img {
@@ -36,7 +83,7 @@ img {
     min-height: 120px;
 }
 
-h1, label, p {
+h1, body, label, p, span, ::placeholder {
     color: var(--text-colour);
 }
 
@@ -56,11 +103,19 @@ body {
     background-color: var(--main-bg);
 }
 
-button
-{
+button, .btn {
     border-radius: 8px;
     border-width: 2px;
     border-color: var(--text-colour);
+    color: var(--text-colour);
+    background-color: var(--subsection-bg);
+}
+
+.nav-link, .btn:hover {
+    color: var(--text-colour);
+}
+
+.active, .nav-link:hover {
     color: var(--text-colour);
     background-color: var(--subsection-bg);
 }

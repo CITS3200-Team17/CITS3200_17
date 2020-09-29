@@ -20,7 +20,11 @@ Many images of galaxies can be found [here](https://apod.nasa.gov/apod/astropix.
 
 [Running The Web App](#running-the-web-app)
 
+[Packages Required](#packages-required)
+
 [Folder structure](#folder-structure)
+
+[Other](#other)
 
 
 ### git setup
@@ -40,7 +44,7 @@ origin  https://github.com/Abdi-Isse/CITS3200_17.git (push)
 upstream        https://github.com/CITS3200-Team17/CITS3200_17.git (fetch)
 upstream        https://github.com/CITS3200-Team17/CITS3200_17.git (push)</code></pre>
 
-Your upstream should be GREYXXX/CITS3200_17.git and your origin should be your forked repo.
+Your upstream should be CITS3200-Team17/Team-17.git and your origin should be your forked repo.
 
 It is important to always run the following commands before you start working on making any changes in your local environment:
 
@@ -97,9 +101,9 @@ I think on windows the command would be:
 
 ```python3 -m pip3 install flask```
 
-I have just added a  python file called flaskapp.py which will contain the main function that will run our web app. If you go inside the file you'll see how simple it is to add pages. At the moment there are two pages, but to add more you would simply copy the the example function and write a new app route with the name of the url that you want and dont forget to give your function a different name.
+I have just added a  python file called app.py which will contain the main function that will run our web app. If you go inside the file you'll see how simple it is to add pages. At the moment there are two pages, but to add more you would simply copy the the example function and write a new app route with the name of the url that you want and dont forget to give your function a different name.
 
-All you need to do to run the web app is to run the flaskapp.py file like you would any other python program.
+All you need to do to run the web app is to run the app.py file like you would any other python program.
 If you are running the main function with:
 
 ```app.run()```
@@ -114,9 +118,32 @@ Just dont forget to change it back to
 
 Before you put up a pull request.
 
+### Packages Required
+
+<p>In order to run the main program, app.py, you will need to install the following packages before you can run it. (If you dont install these you will get an error).</p>
+<p>These packages are:</p>
+<ul>
+    <li>keras</li>
+    <li>tenserflow</li>
+    <li>flask_login</li>
+    <li>tarfile</li>
+    <li>zipfile</li>
+</ul>
+
+Now that the web app is live on heroku always make sure to update the requirements.txt file with any new packages you are using to prevent the app from breaking.
+
 ### Folder structure
 
 To keep our code nice and clean we need to seperate different files into different folders. We should have a templates folder that will contain all our html files. A static folder will that will contain static files, in other words all our css, images and javascript files. When we add our python scripts we should probably also make a folder for them aswell.
+
+
+### Other
+
+The username and password for the login page is:
+<ul>
+    <li>Username = admin</li>
+    <li>Password = password</li>
+</ul>
 
 Feel free to update this doc if you think its missing stuff!
 
